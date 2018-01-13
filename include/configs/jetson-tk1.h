@@ -14,9 +14,6 @@
 #define CONFIG_TEGRA_LP0
 #define CONFIG_AES
 
-/* enable PMIC */
-#define CONFIG_AS3722_POWER
-
 #include "tegra124-common.h"
 
 #ifdef CONFIG_TEGRA_LP0
@@ -47,7 +44,6 @@
 
 /* Board-specific serial config */
 #define CONFIG_SERIAL_MULTI
-#define CONFIG_TEGRA_ENABLE_UARTD
 #define CONFIG_SYS_NS16550_COM1		NV_PA_APB_UARTD_BASE
 
 #define CONFIG_BOARD_EARLY_INIT_F
@@ -88,13 +84,8 @@
 /* USB Host support */
 #define CONFIG_USB_EHCI
 #define CONFIG_USB_EHCI_TEGRA
-#define CONFIG_USB_MAX_CONTROLLER_COUNT	2
-#define CONFIG_USB_STORAGE
 #define CONFIG_CMD_USB
 
-/* USB networking support */
-#define CONFIG_USB_HOST_ETHER
-#define CONFIG_USB_ETHER_ASIX
 
 /* PCI host support */
 #define CONFIG_PCI

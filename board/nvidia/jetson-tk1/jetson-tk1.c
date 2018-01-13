@@ -31,36 +31,3 @@ void pinmux_init(void)
 	pinmux_config_drvgrp_table(jetson_tk1_drvgrps,
 				   ARRAY_SIZE(jetson_tk1_drvgrps));
 }
-
-#ifdef CONFIG_PCI_TEGRA
-int tegra_pcie_board_init(void)
-{
-	struct as3722 *pmic;
-	int err;
-
-	err = as3722_init(&pmic, gd->fdt_blob);
-	if (err) {
-		error("failed to initialize AS3722 PMIC: %d\n", err);
-		return err;
-	}
-
-	err = as3722_sd_enable(pmic, 4);
-	if (err < 0) {
-		error("failed to enable SD4: %d\n", err);
-		return err;
-	}
-
-	err = as3722_sd_set_voltage(pmic, 4, 0x24);
-	if (err < 0) {
-		error("failed to set SD4 voltage: %d\n", err);
-		return err;
-	}
-
-	return 0;
-}
-
-int board_eth_init(bd_t *bis)
-{
-	return pci_eth_init(bis);
-}
-#endif /* PCI */

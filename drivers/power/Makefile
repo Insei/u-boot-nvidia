@@ -14,6 +14,7 @@ obj-$(CONFIG_TPS6586X_POWER)	+= tps6586x.o
 obj-$(CONFIG_TWL4030_POWER)	+= twl4030.o
 obj-$(CONFIG_TWL6030_POWER)	+= twl6030.o
 obj-$(CONFIG_PALMAS_POWER)	+= palmas.o
+obj-$(CONFIG_PALMAS_TPS65913)	+= palmas.o
 
 obj-$(CONFIG_POWER) += power_core.o
 obj-$(CONFIG_DIALOG_POWER) += power_dialog.o
